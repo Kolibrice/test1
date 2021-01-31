@@ -11,11 +11,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Update Ubuntu Software repository
 RUN apt update
-RUN apt-get install python -qq
+RUN apt-get install python git -qq
 
 RUN mkdir app
-COPY . /app
-
+#COPY . /app
 WORKDIR app
+RUN git clone https://github.com/Kolibrice/test1.git
+
+
 
 ENTRYPOINT ["/bin/sh", "-c", "bash"]
